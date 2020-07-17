@@ -6,13 +6,13 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BookTest {
+public class ProductTest {
   Book testBook = new Book("Smile", BigDecimal.valueOf(7), false, false);
 
   @Test
   public void testGetName() {
     String expected =  "Smile";
-    String actual =testBook.getName();
+    String actual = testBook.getName();
     assertEquals(expected, actual);
 
   }
