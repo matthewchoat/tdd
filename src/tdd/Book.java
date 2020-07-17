@@ -5,10 +5,13 @@ import java.math.BigDecimal;
 public class Book implements IProduct {
   String name;
   BigDecimal price;
+  boolean imported, exempt;
 
-  public Book(String name, BigDecimal price) {
+  public Book(String name, BigDecimal price, boolean imported, boolean exempt) {
   this.name = name;
   this.price = price;
+  this.imported = imported;
+  this.exempt = exempt;
   }
 
   @Override
@@ -23,12 +26,12 @@ public class Book implements IProduct {
 
   @Override
   public BigDecimal getPrice() {
-    return null;
+    return this.price;
   }
 
   @Override
   public void setPrice(BigDecimal price) {
-
+    this.price = price;
   }
 
   @Override

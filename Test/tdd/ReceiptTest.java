@@ -9,8 +9,6 @@ public class ReceiptTest {
 
   @Test
     public void receiptTest() {
-    Receipt receipt = new Receipt();
-    assertTrue(receipt.display());
   }
 
 
