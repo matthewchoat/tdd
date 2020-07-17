@@ -1,8 +1,6 @@
 package tdd;
 
-public class Receipt {
+public interface Receipt {
 
-  public boolean display(){
-    return true;
-  }
+  public boolean display();
 }
