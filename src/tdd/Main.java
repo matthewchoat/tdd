@@ -13,7 +13,7 @@ public class Main {
 
   public String printHelloWorld() {
     System.out.println("HELLO WORLD");
-    Book b = new Book("Book 1", BigDecimal.valueOf(12.99));
+    Book b = new Book("Book 1", BigDecimal.valueOf(12.99), false, false);
     return "Hello World";
 
   }
