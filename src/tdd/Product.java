@@ -2,12 +2,12 @@ package tdd;
 
 import java.math.BigDecimal;
 
-public class Book implements IProduct {
+public class Product implements IProduct {
   String name;
   BigDecimal price;
   boolean imported, exempt;
 
-  public Book(String name, BigDecimal price, boolean imported, boolean exempt) {
+  public Product(String name, BigDecimal price, boolean imported, boolean exempt) {
   this.name = name;
   this.price = price;
   this.imported = imported;

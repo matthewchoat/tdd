@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
-  Book testBook = new Book("Smile", BigDecimal.valueOf(7), false, false);
+  Product testProduct = new Product("Twilight", BigDecimal.valueOf(7), false, false);
 
   @Test
   public void testGetName() {
-    String expected =  "Smile";
-    String actual = testBook.getName();
+    String expected =  "Twilight";
+    String actual = testProduct.getName();
     assertEquals(expected, actual);
 
   }
@@ -20,21 +20,21 @@ public class ProductTest {
   @Test
   public void testGetPrice() {
     BigDecimal expected = BigDecimal.valueOf(7);
-    BigDecimal actual = testBook.getPrice();
+    BigDecimal actual = testProduct.getPrice();
     assertEquals(expected, actual);
 
   }
 
   @Test
   public void testIsImported() {
-    boolean actual = testBook.isImported();
+    boolean actual = testProduct.isImported();
     assertFalse(actual);
 
   }
 
   @Test
   public void testIsExempt() {
-    boolean actual = testBook.isExempt();
+    boolean actual = testProduct.isExempt();
     assertFalse(actual);
 
   }

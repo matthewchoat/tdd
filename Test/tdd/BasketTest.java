@@ -10,15 +10,11 @@ public class BasketTest {
   Basket basket = Basket.getBasketInstance();
 
   @Test
-  public void test_AddToBasket() {
-  }
-
-  @Test
-public void test_IsCartSingleton() {
+public void test_IsBasketSingleton() {
     try {
     Basket basket2 = Basket.getBasketInstance();
     if (System.identityHashCode(basket) != System.identityHashCode(basket2)) {
-    fail("Basket is creating multiple instances!");
+    fail("WARNING: Basket is creating multiple instances");
     }
     assertTrue(true);
 
@@ -26,4 +22,17 @@ public void test_IsCartSingleton() {
       re.printStackTrace();
       }
     }
+
+  @Test
+  public void test_canAddToBasket(){
+
+    try {
+      basket.addProductToBasket("1984", BigDecimal.valueOf(7), false, false);
+      assertEquals("1984", basket.inBasket("1984"));
+      System.out.println(basket.getProductsInBasket());
+    } catch (final RuntimeException re){
+      re.printStackTrace();
+    }
+  }
+
 }

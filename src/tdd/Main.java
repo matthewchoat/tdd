@@ -1,7 +1,6 @@
 package tdd;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
 public class Main {
 
@@ -13,7 +12,7 @@ public class Main {
 
   public String printHelloWorld() {
     System.out.println("HELLO WORLD");
-    Book b = new Book("Book 1", BigDecimal.valueOf(12.99), false, false);
+    Product b = new Product("Product 1", BigDecimal.valueOf(12.99), false, false);
     return "Hello World";
 
   }
