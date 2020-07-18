@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Basket {
 
-  private ArrayList<Product> productsInBasket = new ArrayList<>();
+  private ArrayList<IProduct> productsInBasket = new ArrayList<>();
 
   private Basket() {};
 
@@ -16,18 +16,19 @@ public class Basket {
   }
 
 
-  public ArrayList<Product> getProductsInBasket() {
-    return productsInBasket;
+  public ArrayList<IProduct> getProductsInBasket() {
+    return this.productsInBasket;
   }
 
   public void addProductToBasket(String name, BigDecimal price, boolean imported, boolean exempt) {
+
     Product product = new Product(name, price, imported, exempt);
     productsInBasket.add(product);
   }
 
 
   public String inBasket(String productName) {
-    for (Product product : productsInBasket) {
+    for (IProduct product : productsInBasket) {
       if (product.getName().equals(productName)) {
         return product.getName();
       }
