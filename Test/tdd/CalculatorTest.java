@@ -23,10 +23,11 @@ public class CalculatorTest {
   @Test
   public void test_updateProductPrice(){
     basket.addProductToBasket("1984", BigDecimal.valueOf(7), false, true);
-//    calculator.addTaxes();
+    calculator.addTaxes();
     BigDecimal actual = basket.getProductsInBasket().get(0).getPrice();
     BigDecimal expected = BigDecimal.valueOf(7).multiply(BigDecimal.valueOf(1.10)).setScale(2, RoundingMode.HALF_EVEN);
     System.out.println(expected);
     assertEquals(expected, actual);
   }
+
 }

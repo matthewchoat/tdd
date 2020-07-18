@@ -11,12 +11,12 @@ public class Calculator {
   public Calculator(){}
 
   public BigDecimal addTaxes() {
-    BigDecimal temp = null;
+    BigDecimal priceAddTax = null;
       for(IProduct product:basket.getProductsInBasket()){
-        temp = product.getPrice();
+        priceAddTax = product.getPrice().multiply(BigDecimal.valueOf(1.10)).setScale(2, RoundingMode.HALF_EVEN);
+        product.setPrice(priceAddTax);
       }
-      temp = temp.multiply(BigDecimal.valueOf(1.10)).setScale(2, RoundingMode.HALF_EVEN);
-    return temp;
+    return priceAddTax;
   }
 
 }
