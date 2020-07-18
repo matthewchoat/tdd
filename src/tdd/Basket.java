@@ -16,6 +16,7 @@ public class Basket {
   }
 
 
+
   public ArrayList<IProduct> getProductsInBasket() {
     return this.productsInBasket;
   }
@@ -26,7 +27,7 @@ public class Basket {
     productsInBasket.add(product);
   }
 
-
+//find the product by name in the basket
   public String inBasket(String productName) {
     for (IProduct product : productsInBasket) {
       if (product.getName().equals(productName)) {
@@ -34,6 +35,14 @@ public class Basket {
       }
     }
     return "Item not found";
+  }
+
+  public ArrayList<IProduct> getBasket(){
+    return this.productsInBasket;
+  }
+
+  public void payForProducts() {
+
   }
 
 }

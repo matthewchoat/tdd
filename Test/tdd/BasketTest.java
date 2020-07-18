@@ -25,12 +25,12 @@ public void test_isBasketSingleton() {
 
   @Test
   public void test_canAddToBasket(){
-
+      //adding first product
       basket.addProductToBasket("1984", BigDecimal.valueOf(7), false, true);
         String actual = basket.inBasket("1984");
         String expected = "1984";
           assertEquals(expected, actual);
-      System.out.println(basket.getProductsInBasket());
+      //adding second product
       basket.addProductToBasket("domestic perfume", BigDecimal.valueOf(18.99), false, true);
         String actual2 = basket.inBasket("domestic perfume");
         String expected2 = "domestic perfume";

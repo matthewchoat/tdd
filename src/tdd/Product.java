@@ -36,11 +36,11 @@ public class Product implements IProduct {
 
   @Override
   public boolean isExempt() {
-    return false;
+    return this.exempt;
   }
 
   @Override
   public boolean isImported() {
-    return false;
+    return this.imported;
   }
 }
