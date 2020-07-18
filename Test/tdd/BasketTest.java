@@ -32,7 +32,7 @@ public void test_isBasketSingleton() {
           assertEquals(expected, actual);
       System.out.println(basket.getProductsInBasket());
       basket.addProductToBasket("domestic perfume", BigDecimal.valueOf(18.99), false, true);
-        String actual2 = basket.inBasket("House of Leaves");
+        String actual2 = basket.inBasket("domestic perfume");
         String expected2 = "domestic perfume";
           assertEquals(expected2, actual2);
   }
