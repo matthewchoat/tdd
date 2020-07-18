@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Calculator {
   Basket basket = Basket.getBasketInstance();
+  private ArrayList<IProduct> productsCart = Basket.getBasketInstance().getProductsInBasket();
 
   public Calculator(){}
 
