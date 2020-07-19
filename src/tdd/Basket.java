@@ -39,8 +39,8 @@ public class Basket {
     return this.productsInBasket;
   }
 
-  public void payForProducts() {
-
+  public void emptyBasket() {
+    this.productsInBasket.clear();
   }
 
 }
