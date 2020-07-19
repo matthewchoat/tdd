@@ -27,6 +27,7 @@ public class CalculatorTest {
   public void test_doesCartEmptyItems() {
     Basket basket = Basket.getBasketInstance();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
+    basket.emptyBasket();
     int actual = basket.getProductsInBasket().size();
     int expected = 0;
     assertEquals(expected, actual);
