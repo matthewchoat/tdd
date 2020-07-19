@@ -17,9 +17,7 @@ public class Basket {
 
 
 
-  public ArrayList<IProduct> getProductsInBasket() {
-    return this.productsInBasket;
-  }
+  public ArrayList<IProduct> getProductsInBasket() { return this.productsInBasket; }
 
   public void addProductToBasket(String name, BigDecimal price, boolean imported, boolean exempt) {
 
