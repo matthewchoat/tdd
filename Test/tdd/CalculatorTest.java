@@ -71,10 +71,10 @@ public class CalculatorTest {
   public void test_totalTaxesReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
-    basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
+    basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
     basket.addProductToBasket("Music CD", BigDecimal.valueOf(14.99), false, false);
     BigDecimal actual = calculator.addTaxes(basket.getProductsInBasket());
-    BigDecimal expected = BigDecimal.valueOf(12.49).multiply(Constants.TAX_RATE).setScale(2, RoundingMode.HALF_EVEN);
+    BigDecimal expected = BigDecimal.valueOf(27.99).multiply(Constants.TAXANDIMPORT_RATE).setScale(2, RoundingMode.HALF_EVEN);
     expected = expected.add(BigDecimal.valueOf(14.99).multiply(Constants.TAX_RATE).setScale(2, RoundingMode.HALF_EVEN));
     System.out.println(expected);
     assertEquals(expected, actual);
