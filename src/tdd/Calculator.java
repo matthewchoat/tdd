@@ -34,9 +34,6 @@ public class Calculator {
           //Is exempt, not imported = $0.00 tax
         }
 
-
-
-        System.out.println(" New price " + product.getPrice() + " price total tax " + totalTaxes );
       }
     return totalTaxes;
   }

@@ -28,10 +28,10 @@ public class CalculatorTest {
     //testing first product
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
-    basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
+    basket.addProductToBasket("Imported Box of Chocolates", BigDecimal.valueOf(10.00), true, true);
     calculator.addTaxes(basket.getProductsInBasket());
     BigDecimal actual = basket.getProductsInBasket().get(0).getPrice();
-    BigDecimal expected = BigDecimal.valueOf(12.49).multiply(Constants.TAX_MULTIPLIER).setScale(2, RoundingMode.HALF_EVEN);
+    BigDecimal expected = BigDecimal.valueOf(10.00).multiply(Constants.IMPORT_MULTIPLIER).setScale(2, RoundingMode.HALF_EVEN);
     System.out.println("Product 1 with tax " + expected);
     assertEquals(expected, actual);
     //testing second product
