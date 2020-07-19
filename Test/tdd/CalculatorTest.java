@@ -14,7 +14,7 @@ public class CalculatorTest {
   @Test
   public void test_isCalculatorGettingBasketData() {
     Basket basket = Basket.getBasketInstance();
-    basket.emptyBasket();
+    basket.buyProductsInBasket();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
     calculator.addTaxes(basket.getProductsInBasket());
     BigDecimal actual = basket.getProductsInBasket().get(0).getPrice();
@@ -24,20 +24,10 @@ public class CalculatorTest {
   }
 
   @Test
-  public void test_isEmptyCartClearingArray() {
-    Basket basket = Basket.getBasketInstance();
-    basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
-    basket.emptyBasket();
-    int actual = basket.getProductsInBasket().size();
-    int expected = 0;
-    assertEquals(expected, actual);
-  }
-
-  @Test
   public void test_isTaxAndImportAddedToProductPrice(){
     //testing first product
     Basket basket = Basket.getBasketInstance();
-    basket.emptyBasket();
+    basket.buyProductsInBasket();
     basket.addProductToBasket("Imported Box of Chocolates", BigDecimal.valueOf(10.00), true, true);
     calculator.addTaxes(basket.getProductsInBasket());
     BigDecimal actual = basket.getProductsInBasket().get(0).getPrice();
@@ -70,7 +60,7 @@ public class CalculatorTest {
   @Test
   public void test_totalTaxesReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
-    basket.emptyBasket();
+    basket.buyProductsInBasket();
     basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
     basket.addProductToBasket("Music CD", BigDecimal.valueOf(14.99), false, false);
     BigDecimal actual = calculator.addTaxes(basket.getProductsInBasket());
@@ -83,14 +73,14 @@ public class CalculatorTest {
   @Test
   public void test_cartTotalReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
-    basket.emptyBasket();
+    basket.buyProductsInBasket();
     basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
     basket.addProductToBasket("Music CD", BigDecimal.valueOf(14.99), false, false);
     basket.addProductToBasket("Book", BigDecimal.valueOf(12.49), false, true);
     basket.addProductToBasket("Imported Box of Chocolates", BigDecimal.valueOf(10.00), true, true);
     calculator.addTaxes(basket.getProductsInBasket());
     BigDecimal expected = BigDecimal.valueOf(71.67).setScale(2, RoundingMode.HALF_EVEN);
-    BigDecimal actual = calculator.getBasketTotal();
+    BigDecimal actual = calculator.getBasketTotal(basket.getProductsInBasket());
     assertEquals(expected, actual);
   }
 

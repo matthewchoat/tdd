@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Basket {
+  Calculator calculator = new Calculator();
+  Receipt receipt = Receipt.getReceiptInstance();
 
   private ArrayList<IProduct> productsInBasket = new ArrayList<>();
 
@@ -39,8 +41,15 @@ public class Basket {
     return this.productsInBasket;
   }
 
-  public void emptyBasket() {
+  private void emptyBasket() {
     this.productsInBasket.clear();
+  }
+
+  public void buyProductsInBasket(){
+    BigDecimal totalTaxes = calculator.addTaxes(productsInBasket);
+    BigDecimal purchaseTotal = calculator.getBasketTotal(productsInBasket);
+    receipt.printReceipt(productsInBasket, totalTaxes, purchaseTotal);
+    emptyBasket();
   }
 
 }

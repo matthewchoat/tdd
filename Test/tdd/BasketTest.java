@@ -24,7 +24,7 @@ public void test_isBasketSingleton() {
     }
 
   @Test
-  public void test_canAddToBasket(){
+  public void test_canAddProductsToBasket(){
       //adding first product
       basket.addProductToBasket("1984", BigDecimal.valueOf(7), false, true);
         String actual = basket.inBasket("1984");
@@ -35,6 +35,24 @@ public void test_isBasketSingleton() {
         String actual2 = basket.inBasket("domestic perfume");
         String expected2 = "domestic perfume";
           assertEquals(expected2, actual2);
+  }
+
+  @Test
+  public void test_isEmptyBasketClearingArray() {
+    basket.buyProductsInBasket();
+    basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
+    basket.addProductToBasket("domestic perfume", BigDecimal.valueOf(18.99), false, true);
+
+    int actual = basket.getProductsInBasket().size();
+    int expected = 2;
+    assertEquals(expected, actual);
+
+    basket.buyProductsInBasket();
+
+    int actual2 = basket.getProductsInBasket().size();
+    int expected2 = 0;
+    assertEquals(expected2, actual2);
+
   }
 
 }

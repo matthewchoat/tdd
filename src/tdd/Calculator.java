@@ -5,7 +5,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Calculator {
-  Basket basket = Basket.getBasketInstance();
 
   public Calculator(){}
 
@@ -26,20 +25,16 @@ public class Calculator {
         }
 
         else if (product.isExempt() && product.isImported()){
-          totalTaxes = totalTaxes.add(product.getPrice().multiply(Constants.IMPORT_MULTIPLIER)).setScale(2, RoundingMode.HALF_EVEN);
+          totalTaxes = totalTaxes.add(product.getPrice().multiply(Constants.IMPORT_RATE)).setScale(2, RoundingMode.HALF_EVEN);
               product.setPrice(product.getPrice().multiply(Constants.IMPORT_MULTIPLIER).setScale(2, RoundingMode.HALF_EVEN));
-        }
-
-        else{
-          //Is exempt, not imported = $0.00 tax
         }
 
       }
     return totalTaxes;
   }
 
-  public BigDecimal getBasketTotal() {
-    return basket.getProductsInBasket().stream().map(IProduct::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+  public BigDecimal getBasketTotal(ArrayList<IProduct> basket) {
+    return basket.stream().map(IProduct::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
   }
 
 }
