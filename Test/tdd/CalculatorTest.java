@@ -12,7 +12,7 @@ public class CalculatorTest {
   Calculator calculator = new Calculator();
 
   @Test
-  public void test_addTaxToPrice() {
+  public void test_isCalculatorGettingBasketData() {
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
@@ -24,7 +24,7 @@ public class CalculatorTest {
   }
 
   @Test
-  public void test_doesCartEmptyItems() {
+  public void test_isEmptyCartClearingArray() {
     Basket basket = Basket.getBasketInstance();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
     basket.emptyBasket();
@@ -34,7 +34,7 @@ public class CalculatorTest {
   }
 
   @Test
-  public void test_updateProductPrice(){
+  public void test_isTaxAndImportAddedToProductPrice(){
     //testing first product
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
@@ -51,10 +51,24 @@ public class CalculatorTest {
     BigDecimal expected2 = BigDecimal.valueOf(14.99).multiply((Constants.TAX_MULTIPLIER)).setScale(2, RoundingMode.HALF_EVEN);
     System.out.println("Product 2 with tax " + expected2);
     assertEquals(expected2, actual2);
+    //testing third product
+    basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
+    calculator.addTaxes(basket.getProductsInBasket());
+    BigDecimal actual3 = basket.getProductsInBasket().get(2).getPrice();
+    BigDecimal expected3 = BigDecimal.valueOf(27.99).multiply(Constants.TAXANDIMPORT_MULTIPLIER).setScale(2, RoundingMode.HALF_EVEN);
+    System.out.println("Product 3 with tax " + expected3);
+    assertEquals(expected3, actual3);
+    //testing fourth product
+    basket.addProductToBasket("Book", BigDecimal.valueOf(12.49), false, true);
+    calculator.addTaxes(basket.getProductsInBasket());
+    BigDecimal actual4 = basket.getProductsInBasket().get(3).getPrice();
+    BigDecimal expected4 = BigDecimal.valueOf(12.49);
+    System.out.println("Product 4 with tax " + expected4);
+    assertEquals(expected4, actual4);
   }
 
   @Test
-  public void test_getAllTaxes(){
+  public void test_totalTaxesReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
