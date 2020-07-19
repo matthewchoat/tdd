@@ -21,7 +21,10 @@ public class Receipt {
 
   public String processPurchases(ArrayList<IProduct> orders) {
     String temp = "";
-
+    for(IProduct product:orders){
+      System.out.println(product.getName() + ":" + "   $" + product.getPrice() + "\n");
+      temp = product.getName() + ":" + "   $" + product.getPrice();
+    }
     return temp;
   }
 }
