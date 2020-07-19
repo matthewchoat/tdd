@@ -16,8 +16,9 @@ public class CalculatorTest {
     Basket basket = Basket.getBasketInstance();
     basket.emptyBasket();
     basket.addProductToBasket("1984", BigDecimal.valueOf(12.49), false, true);
-    BigDecimal actual = calculator.addTaxes(basket.getProductsInBasket());
-    BigDecimal expected = BigDecimal.valueOf(12.49).multiply(Constants.TAX_RATE).setScale(2, RoundingMode.HALF_EVEN);
+    calculator.addTaxes(basket.getProductsInBasket());
+    BigDecimal actual = basket.getProductsInBasket().get(0).getPrice();
+    BigDecimal expected = BigDecimal.valueOf(12.49);
     System.out.println(expected);
     assertEquals(expected, actual);
   }
