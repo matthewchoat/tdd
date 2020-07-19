@@ -39,7 +39,7 @@ public class Calculator {
   }
 
   public BigDecimal getBasketTotal() {
-    return BigDecimal.valueOf(0);
+    return basket.getProductsInBasket().stream().map(IProduct::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
   }
 
 }
