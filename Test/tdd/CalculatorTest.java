@@ -79,4 +79,20 @@ public class CalculatorTest {
     System.out.println(expected);
     assertEquals(expected, actual);
   }
+
+  @Test
+  public void test_cartTotalReturnedFromArray(){
+    Basket basket = Basket.getBasketInstance();
+    basket.emptyBasket();
+    basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
+    basket.addProductToBasket("Music CD", BigDecimal.valueOf(14.99), false, false);
+    basket.addProductToBasket("Book", BigDecimal.valueOf(12.49), false, true);
+    basket.addProductToBasket("Imported Box of Chocolates", BigDecimal.valueOf(10.00), true, true);
+    calculator.addTaxes(basket.getProductsInBasket());
+    BigDecimal expected = BigDecimal.valueOf(71.67).setScale(2, RoundingMode.HALF_EVEN);
+    BigDecimal actual = calculator.getBasketTotal();
+    assertEquals(expected, actual);
+  }
+
+
 }

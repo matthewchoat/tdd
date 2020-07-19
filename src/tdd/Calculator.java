@@ -38,4 +38,8 @@ public class Calculator {
     return totalTaxes;
   }
 
+  public BigDecimal getBasketTotal() {
+    return BigDecimal.valueOf(0);
+  }
+
 }
