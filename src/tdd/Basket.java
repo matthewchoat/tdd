@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Basket {
-  Calculator calculator = new Calculator();
+  Calculator calculator = Calculator.getCalculatorInstance();
   Receipt receipt = Receipt.getReceiptInstance();
 
   private ArrayList<IProduct> productsInBasket = new ArrayList<>();

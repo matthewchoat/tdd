@@ -9,7 +9,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-  Calculator calculator = new Calculator();
+  Calculator calculator = Calculator.getCalculatorInstance();
+
+  @Test
+  public void test_isCalculatorSingleton() {
+    try {
+      Calculator calculator2 = Calculator.getCalculatorInstance();
+      if (System.identityHashCode(calculator) != System.identityHashCode(calculator2)) {
+        fail("WARNING: Calculator is creating multiple instances");
+      }
+      assertTrue(true);
+
+    } catch (final RuntimeException re){
+      re.printStackTrace();
+    }
+  }
 
   @Test
   public void test_isCalculatorGettingBasketData() {
@@ -58,7 +72,7 @@ public class CalculatorTest {
   }
 
   @Test
-  public void test_totalTaxesReturnedFromArray(){
+  public void test_areTotalTaxesReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
     basket.buyProductsInBasket();
     basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);
@@ -71,7 +85,7 @@ public class CalculatorTest {
   }
 
   @Test
-  public void test_cartTotalReturnedFromArray(){
+  public void test_isCartTotalReturnedFromArray(){
     Basket basket = Basket.getBasketInstance();
     basket.buyProductsInBasket();
     basket.addProductToBasket("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), true, false);

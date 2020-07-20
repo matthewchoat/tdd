@@ -5,8 +5,11 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Calculator {
+  private static Calculator calculator = new Calculator();
 
-  public Calculator(){}
+  public static Calculator getCalculatorInstance(){
+    return calculator;
+  }
 
   public BigDecimal addTaxes(ArrayList<IProduct> productsCart) {
 

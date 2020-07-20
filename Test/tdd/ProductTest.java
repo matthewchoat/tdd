@@ -10,7 +10,7 @@ public class ProductTest {
   Product testProduct = new Product("Twilight", BigDecimal.valueOf(7), false, false);
 
   @Test
-  public void testGetName() {
+  public void test_isGettingName() {
     String expected =  "Twilight";
     String actual = testProduct.getName();
     assertEquals(expected, actual);
@@ -18,7 +18,7 @@ public class ProductTest {
   }
 
   @Test
-  public void testGetPrice() {
+  public void test_isGettingPrice() {
     BigDecimal expected = BigDecimal.valueOf(7);
     BigDecimal actual = testProduct.getPrice();
     assertEquals(expected, actual);
@@ -26,14 +26,14 @@ public class ProductTest {
   }
 
   @Test
-  public void testIsImported() {
+  public void test_IsGettingImported() {
     boolean actual = testProduct.isImported();
     assertFalse(actual);
 
   }
 
   @Test
-  public void testIsExempt() {
+  public void test_IsGettingExempt() {
     boolean actual = testProduct.isExempt();
     assertFalse(actual);
 

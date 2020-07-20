@@ -10,7 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ReceiptTest {
 Receipt receipt = Receipt.getReceiptInstance();
+  @Test
+  public void test_isReceiptSingleton() {
+    try {
+      Receipt receipt2 = Receipt.getReceiptInstance();
+      if (System.identityHashCode(receipt) != System.identityHashCode(receipt2)) {
+        fail("WARNING: Receipt is creating multiple instances");
+      }
+      assertTrue(true);
 
+    } catch (final RuntimeException re){
+      re.printStackTrace();
+    }
+  }
   @Test
     public void test_canGetPurchaseData() {
     Basket basket = Basket.getBasketInstance();

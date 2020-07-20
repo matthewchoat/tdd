@@ -17,6 +17,7 @@ public class Receipt {
     System.out.println("Sales Taxes: $" + totalTaxes + "\n");
     System.out.println("Total: $" + purchaseTotal + "\n");
     System.out.println("-------------------------------\n");
+    System.out.println();
   }
 
   public String processPurchases(ArrayList<IProduct> orders) {
